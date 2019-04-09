@@ -38,11 +38,11 @@
     <?php $counter = 1; # 1 - initialization ?>
     
     <?php while ( $counter < 10 ) { // 2 - condition ?>
-
         <h6>Hello from while</h6>
         <?php $counter = $counter + 1; // 3- increment/decrement ?>
-
     <?php } ?>
+
+
 
     <h3>For Loop</h3>
     <?php for ( $counter = 1 ; $counter < 5 ; $counter++) { ?>
