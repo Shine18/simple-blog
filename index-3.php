@@ -84,6 +84,10 @@
     ?>
 
     
+    <?php 
+    # Create a function which takes an array as a parameter and output its contents
+    # in the following html
+    ?>
     <table>
         <tr>
         <td>Ali</td>
