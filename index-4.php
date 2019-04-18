@@ -96,7 +96,7 @@ function output_arr2( $arr ){
         for ($i = 0; $i < count($arr) ; $i++ ){
             $child_arr = $arr[$i];
 
-            for ($j =0; $j < count($child_arr); $j++ ){
+            for ($j = 0 ; $j < count($child_arr); $j++ ){
                 echo $child_arr[$j];
             }
             echo "<br/>";
