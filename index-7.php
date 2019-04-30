@@ -45,7 +45,6 @@
     $b->set_color("White");
 
 
-
 ?>
 
 <!DOCTYPE html>
