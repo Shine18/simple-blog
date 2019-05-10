@@ -1,4 +1,4 @@
-<?php include("person.php"); ?>
+<?php include("lib/person.php"); ?>
 
 <?php 
 $persons_data = [
