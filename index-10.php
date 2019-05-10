@@ -11,7 +11,7 @@
         var $name;
         var $age;
         var $dob;
-
+        
         function __construct($name = "Unknown" ,$age = 18,$dob = "12-10-1992"){
             $this->name = $name;
             $this->age = $age;
@@ -79,6 +79,7 @@ for($i = 0; $i < 3; $i++) {
     $name = $persons_data[$i]["name"];
     $age = $persons_data[$i]["age"];
     $dob = $persons_data[$i]["dob"];
+
     $p = new Person($name,$age,$dob);
     $persons[$i] = $p;
 }
