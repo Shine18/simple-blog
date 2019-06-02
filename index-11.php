@@ -1,5 +1,4 @@
 <?php include("lib/person.php"); ?>
-
 <?php 
 $persons_data = [
     [
