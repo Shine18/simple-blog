@@ -1,45 +1,50 @@
-<?php $page_title = "Home"; ?>
-
-<?php
-    function bio($n, $a, $grad) {
-        echo "My name is $n <br />";
-        echo "My age is $a <br />";
-
-        if($grad == true){
-            echo "$n is graduated";
-        }
-
-    }
-?>
-
-<!DOCTYPE html>
+<?php include("connect.php"); ?>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title><?php echo $page_title; ?></title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
 </head>
+
 <body>
-    <?php 
-        $name = "Ali"; 
-        $age = 20;
-        $marks = 20.3454;
-        $graduated = true;
+    <div class="container">
+        <?php
+        $query = "SELECT * FROM posts";
+        $result = mysqli_query($conn, $query);
 
+        $rows_count = mysqli_num_rows($result);
 
+        if ($rows_count > 0) {
+            while ($post = mysqli_fetch_assoc($result)) {
+                $timestamp = date_create($post['publish_date']);
+                $date = date_format($timestamp, "M d, Y");
 
-    ?>
-    <h1>My name is <?php echo $name; ?></h1>
-    <h2><?php echo "MY name is $name"; ?></h2>
-    <?php echo "<h3>My age is $age</h3>"; ?>
-    
-
-    <?php bio("Ali", 20, true); ?>
-    <?php bio("Umar", 21,false); ?>
-
-
-
+                ?>
+                <article class="post">
+                    <div class="jumbotron">
+                        <h1 class="display-4"><?php echo $post['title']; ?></h1>
+                        <h4><?php echo $date; ?></h4>
+                        <hr class="my-4">
+                        <p><?php echo $post['content']; ?></p>
+                    </div>
+                </article>
+            <?php
+            }
+        } else { }
+        ?>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
+
 </html>

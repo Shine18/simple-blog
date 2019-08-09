@@ -7,8 +7,7 @@
         public static $error_exists = false;
         public static $errors = "";
 
-        function __construct($fields = array(), $values = array(), $success = "Successful"  )
-        {
+        function __construct($fields = array(), $values = array(), $success = "Successful"  ){
             $this->fields = $fields;
             $this->values = $values;
             $this->success_message = $success;
