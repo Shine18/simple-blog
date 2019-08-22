@@ -15,8 +15,13 @@
 
 <body>
     <div class="container">
+        <header class="site-header my-4">
+            <div class="jumbotron">
+                <h1 class="text-center">Simple Blog</h1>
+            </div>
+        </header>
         <?php
-        $query = "SELECT * FROM posts";
+        $query = "SELECT * FROM posts ORDER BY id DESC";
         $result = mysqli_query($conn, $query);
 
         $rows_count = mysqli_num_rows($result);
@@ -27,15 +32,20 @@
                 $date = date_format($timestamp, "M d, Y");
 
                 ?>
-                <article class="post">
-                    <div class="jumbotron">
-                        <h1 class="display-4"><?php echo $post['title']; ?></h1>
-                        <h4><?php echo $date; ?></h4>
-                        <hr class="my-4">
-                        <p><?php echo $post['content']; ?></p>
-                    </div>
-                </article>
-            <?php
+        <article class="post">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="card-title my-0"><?php echo $post['title']; ?></h5>
+                </div>
+                <div class="card-body">
+
+                    <small><?php echo $date; ?></small>
+                    <p class="card-text"><?php echo $post['content']; ?></p>
+                </div>
+
+            </div>
+        </article>
+        <?php
             }
         } else { }
         ?>
