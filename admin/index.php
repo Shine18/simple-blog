@@ -1,25 +1,18 @@
+<?php session_start(); ?>
 <?php include("../connect.php"); ?>
+<?php include("auth.php"); ?>
 <?php include("include/header.php"); ?>
 
-        <div class="jumbotron">
-            <h3 class="text">Create a Blog Post</h3>
-            <hr>
-            <form action="index.php" method="POST">
-                <div class="form-group">
-                    <label for="title">Title</label>
-                    <br>
-                    <input type="text" class="form-control" name="title" id="title">
-                </div>
-                <div class="form-group">
-                    <label for="content">Content</label>
-                    <br>
-                    <textarea name="content" class="form-control" id="content" cols="30" rows="5"></textarea>
-                </div>
-                <button class="btn btn-primary" type="submit" name="submit">Post</button>
-            </form>
+
+<?php var_dump($_SESSION); 
+?>
+    <div class="jumbotron">
+        <div class="text-center">
+            <p class="display-4">Manage Your blog from here</p>
+            <a href="posts.php" class="btn btn-primary">Manage Posts</a>
+            <a href="logout.php" class="btn btn-info">Log Out</a>
         </div>
     </div>
-
     <?php
     if (isset($_POST['submit'])) {
         extract($_POST);
