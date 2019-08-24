@@ -15,9 +15,11 @@
     } 
     elseif( isset($_POST['update'])){
         extract($_POST);
+        $title = mysqli_real_escape_string($conn, $title);
+        $content = mysqli_real_escape_string($conn, $content);
         $query = "UPDATE posts SET title='$title',content='$content' WHERE id=$id";
         $result = mysqli_query($conn, $query);
-
+        
     }
 ?>
 
