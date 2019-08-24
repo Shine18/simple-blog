@@ -1,5 +1,6 @@
 <?php session_start(); ?>
 <?php include("../connect.php"); ?>
+<?php include("auth.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +16,6 @@
 </head>
 
 <body>
-    <?php var_dump($_SESSION); ?>
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12 col-sm-4 col-md-3">
